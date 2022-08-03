@@ -14,9 +14,8 @@ export class ViewAdministradorComponent implements OnInit {
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
-    this.usuarioService.pegarTodosUsuarios().subscribe((dados) => {
-      console.log(dados)
-      this.usuarios = dados;
+    this.usuarioService.pegarTodosUsuarios().subscribe((res) => {
+      this.usuarios = res;
     })
   }
 

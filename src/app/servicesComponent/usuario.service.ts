@@ -1,3 +1,4 @@
+import { Usuario } from './../models/Usuario';
 import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -17,6 +18,10 @@ export class UsuarioService {
   }
 
   public pegarTodosUsuarios(): Observable<any>{
-    return this.http.get<any>(environment.urlBackEnd + "/usuarios")
+    return this.http.get<Usuario[]>(environment.urlBackEnd + "/usuarios");
+  }
+
+  public pegarUmUsuarioPorId(id: string){
+    return this.http.get<Usuario>(environment.urlBackEnd + "/usuarios/" + id);
   }
 }

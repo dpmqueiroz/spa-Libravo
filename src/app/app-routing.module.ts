@@ -5,11 +5,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ViewLoginComponent } from './viewComponent/view-login/view-login.component';
 import { AuthorizationGuard } from './_guard/authorization.guard';
+import { PermissoesGuard } from './_guard/permissoes.guard';
 
 const routes: Routes = [
   { path:'', component: ViewHomeComponent },
   { path:'login', component: ViewLoginComponent },
-  { path:'administracao', component: ViewAdministradorComponent, canActivate: [AuthorizationGuard] },
+  { path:'administracao', component: ViewAdministradorComponent, canActivate: [AuthorizationGuard, PermissoesGuard] },
   { path:'administracao/usuario/edit/:id', component: ViewAdministratorEditComponent }
 ];
 

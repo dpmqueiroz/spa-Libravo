@@ -21,6 +21,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewAdministratorEditComponent } from './viewComponent/view-administrator-edit/view-administrator-edit.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { TabelaPermissoesListarComponent } from './sharedComponents/tabela-permissoes-listar/tabela-permissoes-listar.component';
 
 
 
@@ -37,7 +38,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     BotaoGoogleComponent,
     TabelaComponent,
     TabelaUsuarioEditComponent,
-    ViewAdministratorEditComponent
+    ViewAdministratorEditComponent,
+    TabelaPermissoesListarComponent
   ],
   imports: [
     BrowserModule,

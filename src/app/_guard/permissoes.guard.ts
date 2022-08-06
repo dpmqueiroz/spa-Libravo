@@ -5,15 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthorizationGuard implements CanActivate {
+export class PermissoesGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-    if(!!sessionStorage.getItem("@libravo:token")) {
-      return true;
-    } else {
-      return false;
-    }
+    return true;
   }
+
 }

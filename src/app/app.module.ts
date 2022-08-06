@@ -20,6 +20,7 @@ import { TabelaUsuarioEditComponent } from './sharedComponents/tabela-usuario-ed
 import { MatTabsModule } from '@angular/material/tabs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewAdministratorEditComponent } from './viewComponent/view-administrator-edit/view-administrator-edit.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 
@@ -43,6 +44,7 @@ import { ViewAdministratorEditComponent } from './viewComponent/view-administrat
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,

@@ -1,5 +1,5 @@
-import { OAuthGoogleService } from './../../servicesComponent/oauth-google.service';
 import { Component, OnInit } from '@angular/core';
+import { OAuthGoogleService } from 'src/app/servicesComponent/oauth-google.service';
 
 @Component({
   selector: 'app-view-login',
@@ -8,12 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewLoginComponent implements OnInit {
 
-  constructor(
-    private oAuthGoogleService: OAuthGoogleService
-  ) { }
+  constructor(private oAuthGoogleService: OAuthGoogleService) { }
 
   ngOnInit(): void {
-    this.oAuthGoogleService.oAuthGoogleFunction();
+    this.oAuthGoogleService.oAuthGoogleFunction()
   }
-
 }

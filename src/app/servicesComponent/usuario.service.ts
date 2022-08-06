@@ -17,11 +17,11 @@ export class UsuarioService {
 
   }
 
-  public pegarTodosUsuarios(): Observable<any>{
+  pegarTodosUsuarios(): Observable<any>{
     return this.http.get<Usuario[]>(environment.urlBackEnd + "/usuarios");
   }
 
-  public pegarUmUsuarioPorId(id: string){
+  pegarUmUsuarioPorId(id: string){
     return this.http.get<Usuario>(environment.urlBackEnd + "/usuarios/" + id);
   }
 }

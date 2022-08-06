@@ -1,5 +1,6 @@
 import { environment } from './../../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
+import { OAuthGoogleService } from 'src/app/servicesComponent/oauth-google.service';
 
 @Component({
   selector: 'app-botao-google',
@@ -10,9 +11,10 @@ export class BotaoGoogleComponent implements OnInit {
 
   clienteId: string = environment.clienteId;
 
-  constructor() { }
+  constructor(private oAuthGoogleService: OAuthGoogleService) { }
 
   ngOnInit(): void {
+    this.oAuthGoogleService.oAuthGoogleFunction()
   }
 
 }

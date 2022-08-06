@@ -1,7 +1,6 @@
 import { responseGoogleOauth } from './../models/responseGoogleOAuth.model';
 import { environment } from './../../environments/environment.prod';
-import { Injectable } from '@angular/core';
-import jwtDecode,{ JwtPayload } from 'jwt-decode';
+import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -10,28 +9,31 @@ import { Router } from '@angular/router';
 export class OAuthGoogleService {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private ngZone: NgZone,
   ) { }
 
-  oAuthGoogleFunction (){
+  async oAuthGoogleFunction() {
 
-    window.google.accounts.id.initialize({
-        client_id: environment.clienteId,
-        //FUNÇÃO QUE RECEB E TRATA OS DADOS RECEBIDOS
-        callback: (response: responseGoogleOauth) => {
-          const decoded = jwtDecode<JwtPayload>(response.credential)
-          console.log(decoded);
+    await window.google.accounts.id.initialize({
+      client_id: environment.clienteId,
+      callback: (response: responseGoogleOauth) => {
+        sessionStorage.clear();
+        sessionStorage.setItem("@libravo:token", response.credential);
+        this.ngZone.run(() => {
           this.router.navigate(['administracao'])
-        }
-      })
+        })
+      }
+    })
 
-      window.google.accounts.id.renderButton(
-        document.getElementById('btn-google'),
-        {
-          theme: "outline",
-          size: "large",
-          shape: "square"
-        }
-      )
+    await window.google.accounts.id.renderButton(
+      document.getElementById('btn-google'),
+      {
+        theme: "outline",
+        size: "large",
+        shape: "square"
+      }
+    )
   }
+  
 }

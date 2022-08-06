@@ -1,6 +1,7 @@
 import { Usuario } from './../../models/Usuario';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/servicesComponent/usuario.service';
+import { Permissao } from 'src/app/models/Permissao';
 
 @Component({
   selector: 'app-view-administrador',
@@ -10,13 +11,16 @@ import { UsuarioService } from 'src/app/servicesComponent/usuario.service';
 export class ViewAdministradorComponent implements OnInit {
 
   usuarios!: Usuario[];
+  permissoes!: Permissao[];
 
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
-    this.usuarioService.pegarTodosUsuarios().subscribe((dados) => {
-      console.log(dados)
-      this.usuarios = dados;
+    this.usuarioService.pegarTodosUsuarios().subscribe((res) => {
+      this.usuarios = res;
+    })
+    this.usuarioService.pegarTodasPermissoes().subscribe((res) => {
+      this.permissoes = res;
     })
   }
 

@@ -1,0 +1,63 @@
+<form class="example-form" [formGroup]="form">
+
+  <div class="row">
+
+    <div class="col">
+
+      <img [src]="form.get('imageUrl')?.value">
+
+    </div>
+
+    <div class="col">
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input  matInput formControlName="email" readonly>
+      </mat-form-field>
+
+    </div>
+
+  </div>
+
+
+
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Primeiro Nome</mat-label>
+        <input type="text" matInput formControlName="firstName">
+        <mat-error *ngIf="form.controls.firstName.invalid">
+          Nome é <strong>Obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ultimo Nome (Sobrenome)</mat-label>
+        <input type="text" matInput formControlName="lastName">
+        <mat-error *ngIf="form.controls.lastName.invalid">
+          Sobrenome é <strong>Obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Permissao</mat-label>
+    <input type="text" matInput formControlName="permissao" name="permissao">
+    <mat-error *ngIf="form.controls.permissao.invalid">
+      Selecione uma <strong>Permissão</strong>
+    </mat-error>
+  </mat-form-field>
+
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Link URL da Imagem</mat-label>
+      <input type="url" matInput formControlName="imageUrl">
+      <mat-error *ngIf="form.controls.imageUrl.invalid">
+        o Link da Imagem é <strong>Obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+
+
+</form>

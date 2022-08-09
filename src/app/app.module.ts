@@ -26,6 +26,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { TabelaPermissoesListarComponent } from './sharedComponents/tabela-permissoes-listar/tabela-permissoes-listar.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DialogDeletarUsuarioComponent } from './sharedComponents/dialog-deletar-usuario/dialog-deletar-usuario.component';
 import { ErrorInterceptor } from './app-Interceptor/error.interceptor';
 import { LoadingComponent } from './sharedComponents/loading/loading.component';
@@ -63,7 +64,8 @@ import { LoadingComponent } from './sharedComponents/loading/loading.component';
     FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressBarModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
               {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],

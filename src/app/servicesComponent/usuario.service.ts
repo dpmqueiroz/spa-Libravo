@@ -11,7 +11,8 @@ import { Permissao } from '../models/Permissao';
 export class UsuarioService {
 
   httpOptions = new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'password': 'senhadoAngular'
   })
 
   constructor(private http: HttpClient) {

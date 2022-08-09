@@ -1,3 +1,5 @@
+import { LoadingInterceptor } from './app-Interceptor/loadingInterceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -25,6 +27,8 @@ import { TabelaPermissoesListarComponent } from './sharedComponents/tabela-permi
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogDeletarUsuarioComponent } from './sharedComponents/dialog-deletar-usuario/dialog-deletar-usuario.component';
+import { ErrorInterceptor } from './app-Interceptor/error.interceptor';
+import { LoadingComponent } from './sharedComponents/loading/loading.component';
 
 
 
@@ -41,7 +45,8 @@ import { DialogDeletarUsuarioComponent } from './sharedComponents/dialog-deletar
     TabelaUsuarioEditComponent,
     ViewAdministratorEditComponent,
     TabelaPermissoesListarComponent,
-    DialogDeletarUsuarioComponent
+    DialogDeletarUsuarioComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,8 @@ import { DialogDeletarUsuarioComponent } from './sharedComponents/dialog-deletar
     MatProgressSpinnerModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+              {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

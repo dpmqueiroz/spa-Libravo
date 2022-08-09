@@ -44,7 +44,7 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Ações </th>
         <td mat-cell *matCellDef="let user">
           <a routerLink="/administracao/usuario/edit/{{user.id}}"> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">edit</mat-icon> </a >
-          <a href=""> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">delete</mat-icon> </a></td>
+          <a (click)="openDialog(user.id, user.firstName)"> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">delete</mat-icon> </a></td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -64,3 +64,4 @@
     <img src="https://c.tenor.com/mRQ6ayWwAasAAAAC/volleyball-on-fire.gif" alt="">
   </div>
 </ng-container>
+

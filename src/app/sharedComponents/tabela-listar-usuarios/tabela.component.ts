@@ -1,9 +1,11 @@
+import { DialogDeletarUsuarioComponent } from './../dialog-deletar-usuario/dialog-deletar-usuario.component';
 import { Usuario } from '../../models/Usuario';
 import { Component, Input, ViewChild, SimpleChanges, OnChanges } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import {AfterViewInit} from '@angular/core';
-import {MatSort} from '@angular/material/sort';
+import  {MatSort } from '@angular/material/sort';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 /**
  * @title Data table with sorting, pagination, and filtering.
@@ -23,7 +25,7 @@ export class TabelaComponent implements AfterViewInit, OnChanges{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
 
   }
 
@@ -46,4 +48,17 @@ export class TabelaComponent implements AfterViewInit, OnChanges{
       this.dataSource.paginator.firstPage();
     }
   }
+
+  openDialog(id :number, firstName: string): void {
+    console.log("Entrei no Open Dialog e recebi")
+    console.log(id + firstName)
+    this.dialog.open(DialogDeletarUsuarioComponent, {
+      width: '250px',
+      data: {
+        firstName: firstName,
+        id: id
+      }
+    });
+  }
+
 }

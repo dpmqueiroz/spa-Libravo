@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Deleção de Usuário</h1>
+<div mat-dialog-content>
+  Você gostaria de confirmar a deleção do usuário {{data.firstName}}
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Não</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="deletarUsuario()">Sim</button>
+</div>

@@ -24,6 +24,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { TabelaPermissoesListarComponent } from './sharedComponents/tabela-permissoes-listar/tabela-permissoes-listar.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DialogDeletarUsuarioComponent } from './sharedComponents/dialog-deletar-usuario/dialog-deletar-usuario.component';
 
 
 
@@ -39,7 +40,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     TabelaComponent,
     TabelaUsuarioEditComponent,
     ViewAdministratorEditComponent,
-    TabelaPermissoesListarComponent
+    TabelaPermissoesListarComponent,
+    DialogDeletarUsuarioComponent
   ],
   imports: [
     BrowserModule,

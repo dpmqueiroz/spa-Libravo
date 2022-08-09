@@ -29,4 +29,8 @@ export class UsuarioService {
   pegarUmUsuarioPorId(id: string){
     return this.http.get<Usuario>(environment.urlBackEnd + "/usuarios/" + id);
   }
+
+  deletarUmUsuario(id: number){
+    return this.http.delete<Usuario>(environment.urlBackEnd + "/usuarios/" + id);
+  }
 }

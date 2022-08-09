@@ -16,11 +16,18 @@ export class ViewAdministradorComponent implements OnInit {
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
-    this.usuarioService.pegarTodosUsuarios().subscribe((res) => {
+
+    this.usuarioService.pegarTodosUsuarios().toPromise().then(res => {
       this.usuarios = res;
+    }).catch(e => {
+      alert("Tivemos um erro ao Receber os dados do Back-End")
     })
-    this.usuarioService.pegarTodasPermissoes().subscribe((res) => {
+
+
+    this.usuarioService.pegarTodasPermissoes().toPromise().then(res => {
       this.permissoes = res;
+    }).catch(e => {
+      alert("Tivemos um erro ao Receber os dados do Back-End")
     })
   }
 

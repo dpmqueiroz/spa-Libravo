@@ -30,6 +30,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DialogDeletarUsuarioComponent } from './sharedComponents/dialog-deletar-usuario/dialog-deletar-usuario.component';
 import { ErrorInterceptor } from './app-Interceptor/error.interceptor';
 import { LoadingComponent } from './sharedComponents/loading/loading.component';
+import { DialogFailComponent } from './sharedComponents/dialog-fail/dialog-fail.component';
 
 
 
@@ -47,7 +48,8 @@ import { LoadingComponent } from './sharedComponents/loading/loading.component';
     ViewAdministratorEditComponent,
     TabelaPermissoesListarComponent,
     DialogDeletarUsuarioComponent,
-    LoadingComponent
+    LoadingComponent,
+    DialogFailComponent
   ],
   imports: [
     BrowserModule,
